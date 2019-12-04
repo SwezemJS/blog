@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use App\Post;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +25,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = Post::with('user')->get();
+
+        foreach ($posts as $post) {
+            echo $post->user->name;
+        }
+        
+        return view('posts',['posts'=>$posts]);
+        /*
+
+        foreach ($posts as $post) {
+            echo $post->user->name;
+        }
+
+        $posts = $user->posts()->get();
+        foreach ($posts as $post) {
+            dump($post->title.' -- '.$user->login);
+        }*/
+        //echo ;
+        //dump($posts);
     }
 }

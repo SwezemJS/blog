@@ -19,13 +19,11 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/posts', function () {
-    return view('posts');
-})->name('posts');
+Route::get('/posts','HomeController@index')->name('posts');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 /*
 Route::get('/test', ['middleware' => ['web','auth'], function ()
 {
