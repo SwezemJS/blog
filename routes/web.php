@@ -14,12 +14,19 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('index');
 })->name('index');
+Route::get('/posts','HomeController@index')->name('posts');
+Route::get('/posts/{id?}','HomeController@post_view')->where('id', '[0-9]+')->name('post_view');
 
+Route::group(['prefix' => 'new'], function () {
+
+		Route::get('post','HomeController@newpost')->name('n_post');
+		Route::post('add_post','HomeController@addpost')->name('add_post');
+
+});
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/posts','HomeController@index')->name('posts');
 
 Auth::routes();
 

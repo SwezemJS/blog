@@ -4,7 +4,7 @@
 	
 	<nav id="fh5co-main-menu" role="navigation">
 		<ul>
-			<li class="fh5co-active"><a href="{{ route('index') }}">Home</a></li>
+			<li><a href="{{ route('index') }}">Home</a></li>
 			<li><a href="{{ route('posts') }}">Блог</a></li>
 			@if (Auth::check())  
 				<li><a href="{{ route('logout') }}" 

@@ -27,22 +27,24 @@ class HomeController extends Controller
     {
         $posts = Post::with('user')->get();
 
-        foreach ($posts as $post) {
-            echo $post->user->name;
-        }
-        
         return view('posts',['posts'=>$posts]);
-        /*
-
-        foreach ($posts as $post) {
-            echo $post->user->name;
-        }
-
-        $posts = $user->posts()->get();
-        foreach ($posts as $post) {
-            dump($post->title.' -- '.$user->login);
-        }*/
-        //echo ;
-        //dump($posts);
+    }
+    public function post_view($id)
+    {    
+        $post = Post::with('user')->where('id',$id)->get();
+        if ($post->toArray()) {
+            return view('id_posts',['post'=>$post]);
+        } else {
+            abort(404);  
+        }  
+    }
+    public function newpost()
+    {
+        return view('new.post');
+    }
+    public function addpost(Request $request)
+    {
+        dump($request);
+        return 1;
     }
 }
