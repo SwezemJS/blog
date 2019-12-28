@@ -36,12 +36,14 @@
 	<script>
 		jQuery(function($) {
 			$('#text').summernote({
+				fontSizes: ['12', '14', '16', '18', '24', '36', '48'],
 				placeholder:'Уже пишешь?',
+				minHeight:300,
 				lang:'ru-RU',
 				codemirror: { // codemirror options
 				    theme: 'monokai'
 				  }
-			});
+			}).summernote('fontSize', 20).summernote('color','black');
 		});
 
 	</script>

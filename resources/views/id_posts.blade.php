@@ -10,7 +10,7 @@
 				</h2>
 				@foreach ($post as $data)
 					<h1>{{ $data->title }}</h1>
-					<blockquote>{{ $data->text }}</blockquote>
+					<p style="color: black;">{!! $data->text !!}</p>
 				@endforeach
 			</div>
 		</div>
