@@ -19,7 +19,7 @@ class HomeController extends Controller
 
        // $this->middleware('auth');
     }
-    
+
 
 
     /**
@@ -31,21 +31,24 @@ class HomeController extends Controller
     {
         $posts = Post::with('user')->latest()->get();
 
-        return view('posts',['posts'=>$posts]);
+        return view('folderPosts.posts',['posts'=>$posts]);
     }
+
     public function post_view($id)
     {
         $post = Post::with('user')->where('id',$id)->get();
         if ($post->toArray()) {
-            return view('id_posts',['post'=>$post]);
+            return view('folderPosts.id_posts',['post'=>$post]);
         } else {
             abort(404);
         }
     }
+
     public function newpost()
     {
-        return view('new.post');
+        return view('folderPosts.add_post');
     }
+
     public function addpost(StoreBlogPostRequest $request)
     {
         $post = new Post;

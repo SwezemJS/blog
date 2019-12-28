@@ -14,27 +14,17 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('index');
 })->name('index');
+
 Route::get('/posts','HomeController@index')->name('posts');
 Route::get('/posts/{id?}','HomeController@post_view')->where('id', '[0-9]+')->name('post_view');
-
 Route::group(['prefix' => 'new'], function () {
 
 		Route::get('post','HomeController@newpost')->name('n_post');
 		Route::post('add_post','HomeController@addpost')->name('add_post');
+});
 
+Route::group(['prefix' => 'users'], function () {
+    Route::get('/','UsersController@getUsers')->name('all_users');
+	//	Route::get('/{user?}','HomeController@newpost')->name('n_post');
 });
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-/*
-Route::get('/test', ['middleware' => ['web','auth'], function ()
-{
-	dump(Auth::user()->name);
-	//return view('test');
-}])->name('test');
-
-
-
-Route::get('/vk', function () {
-  // Только аутентифицированные пользователи могут зайти...
-})->middleware('auth.basic');*/

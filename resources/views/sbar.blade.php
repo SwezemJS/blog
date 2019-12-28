@@ -1,24 +1,25 @@
 <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
 	<h1 id="fh5co-logo"><a href="{{ route('index') }}">Malder</a></h1>
-	
+
 	<nav id="fh5co-main-menu" role="navigation">
 		<ul>
 			<li><a href="{{ route('index') }}">Home</a></li>
 			<li><a href="{{ route('posts') }}">Блог</a></li>
-			@if (Auth::check())  
-				<li><a href="{{ route('logout') }}" 
+			@if (Auth::check())
+			  <li><a href="{{route('all_users')}}">Пользователи</li>
+				<li><a href="{{ route('logout') }}"
 					onclick="event.preventDefault();
                 	document.getElementById('logout-form').submit();">{{ __('Выйти') }}
             	</a></li>
 				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-			@else 
+			@else
 				<li><a href="{{ route('login') }}">Авторизация</a></li>
 				<li><a href="{{ route('register') }}">Регистрация</a></li>
 			@endif
-			
+
 		</ul>
 	</nav>
 

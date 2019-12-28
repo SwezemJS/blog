@@ -15,14 +15,14 @@
 							<div class="desc">
 								<h3><a href="#">{{ $post->title }}</a></h3>
 								<span > {{ $post->create_at }} </span>
-								<p>{!! mb_strimwidth($post->text, 0, 80, "...") !!} </p>
+								<p style="word-break: break-all;">{{  mb_strimwidth(strip_tags($post->text), 0, 80, "...") }} </p>
 								<a href="{{ route('post_view').'/'.$post->id }}" class="lead" style="border:1px solid black; padding: 10px;margin: 10px; width: 100%;">Подробнее<i class="icon-arrow-right3"></i></a>
 								<hr>
 								<p style="color:black;font-size: 14pt;"> Author : {{ $post->user->login }} </p>
 							</div>
 						</div>
 					</div>
-				@endforeach 
+				@endforeach
 				</div>
 			</div>
 		</div>
@@ -39,11 +39,10 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
-	
-	
+
+
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
 	</body>
 </html>
-
