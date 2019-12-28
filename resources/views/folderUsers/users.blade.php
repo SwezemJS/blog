@@ -22,7 +22,7 @@
                 <th scope="row">{{ $user->id }}</th>
                 <td>
                   {{ $user->name }}</td>
-                <td>{{ $user->created_at }}</td>
+                <td>{{ date("d.m.y",strtotime($user->created_at)) }}</td>
               </tr>
               @endforeach
             </tbody>

@@ -1,4 +1,9 @@
 @include('head')
+	<style media="screen">
+			.add-button {
+				width: 100%;
+			}
+	</style>
 	<body>
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -7,18 +12,20 @@
 			<div class="fh5co-narrow-content">
 				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">
 					<div class="row row-bottom-padded-md">
+						<div class="">
+							<a href="{{route('n_post')}}" class="add-button btn btn-primary" name="button">New post</a>
+						</div>
 				</h2>
 				@foreach ($posts as $post)
 					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
 						<div class="blog-entry">
 							<a href="{{ route('post_view').'/'.$post->id }}" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
 							<div class="desc">
-								<h3><a href="#">{{ $post->title }}</a></h3>
-								<span > {{ $post->create_at }} </span>
-								<p style="word-break: break-all;">{{  mb_strimwidth(strip_tags($post->text), 0, 80, "...") }} </p>
-								<a href="{{ route('post_view').'/'.$post->id }}" class="lead" style="border:1px solid black; padding: 10px;margin: 10px; width: 100%;">Подробнее<i class="icon-arrow-right3"></i></a>
+								<h3><a href="{{ route('post_view').'/'.$post->id }}">{{ $post->title }}</a></h3>
+								<p style="word-break: break-all; height:80px;">{{  mb_strimwidth(strip_tags($post->text), 0, 80, "...") }} </p>
 								<hr>
 								<p style="color:black;font-size: 14pt;"> Author : {{ $post->user->login }} </p>
+								<p style="color:black;font-size: 10pt; float: right;"> {{ date("d.m.y",strtotime($post->created_at)) }}</p>
 							</div>
 						</div>
 					</div>

@@ -17,13 +17,13 @@ Route::get('/', function () {
 
 Route::get('/posts','HomeController@index')->name('posts');
 Route::get('/posts/{id?}','HomeController@post_view')->where('id', '[0-9]+')->name('post_view');
-Route::group(['prefix' => 'new'], function () {
+Route::group(['prefix' => 'new','middleware'=>'auth'], function () {
 
 		Route::get('post','HomeController@newpost')->name('n_post');
 		Route::post('add_post','HomeController@addpost')->name('add_post');
 });
 
-Route::group(['prefix' => 'users'], function () {
+Route::group(['prefix' => 'users','middleware'=>'auth'], function () {
     Route::get('/','UsersController@getUsers')->name('all_users');
 	//	Route::get('/{user?}','HomeController@newpost')->name('n_post');
 });
