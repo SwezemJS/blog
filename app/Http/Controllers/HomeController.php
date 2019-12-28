@@ -16,32 +16,10 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-      
+
        // $this->middleware('auth');
     }
-    public function massive()
-    {
-         echo date("H:i:s");
-         $massive = [];
-         for ($i=0; $i < 2; $i++) {
-                $massive[$i] = rand(1,2);
-            }
-
-        //dump($massive);
-            echo " ";
-        for ($i=0; $i < count($massive)-1; $i++) {
-            if ($massive[$i]>$massive[$i+1]) {
-                $t = $massive[$i];
-                $massive[$i] = $massive[$i+1];
-                $massive[$i+1] = $t;
-                if ($i) {
-                    $i-=2;
-                }
-           }
-        }
-        dump($massive);
-        echo date("H:i:s");
-    }
+    
 
 
     /**

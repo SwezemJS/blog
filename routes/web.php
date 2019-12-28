@@ -23,7 +23,6 @@ Route::group(['prefix' => 'new'], function () {
 		Route::post('add_post','HomeController@addpost')->name('add_post');
 
 });
-Route::get('/massive','HomeController@massive')->name('posts');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
