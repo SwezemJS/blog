@@ -21,6 +21,7 @@ Route::group(['prefix' => 'new','middleware'=>'auth'], function () {
 
 		Route::get('post','HomeController@newpost')->name('n_post');
 		Route::post('add_post','HomeController@addpost')->name('add_post');
+
 });
 
 Route::group(['prefix' => 'users','middleware'=>'auth'], function () {

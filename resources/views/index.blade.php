@@ -14,8 +14,8 @@
 				   			<div class="row">
 					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
 					   				<div class="slider-text-inner">
-					   					<h1>Сайт <strong></strong>создан для отработки навыков Laravel</h1>
-										@if (Auth::user()) 
+					   					<h1>Сайт <strong></strong>создан для защиты курсовой</h1>
+										@if (Auth::user())
 					   					<h2>Приветствуем тебя {{ Auth::user()->name }} !</h2>
 					   					@endif
 					   				</div>
@@ -29,7 +29,7 @@
 				   			<div class="row">
 					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
 					   				<div class="slider-text-inner">
-					   					<h1>Есть еще идеи для текста?</h1>
+					   					<h1>Создайте аккаунт и начните делиться мыслями!</h1>
 					   				</div>
 					   			</div>
 					   		</div>
@@ -50,8 +50,8 @@
 				  	</ul>
 			  	</div>
 			</aside>
-			
-			
+
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -62,8 +62,8 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
-	
-	
+
+
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
